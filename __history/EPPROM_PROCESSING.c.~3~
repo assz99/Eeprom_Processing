@@ -1,0 +1,39 @@
+#include <EPPROM_PROCESSING.h>
+
+#include <2416.C>
+
+#INT_EXT
+void  EXT_isr(void) 
+{
+
+}
+
+#INT_EXT1
+void  EXT1_isr(void) 
+{
+
+}
+
+void main()
+{
+   fprintf(PORT1,"Inicializando\n");
+   setup_adc_ports(AN0);
+   setup_timer_2(T2_DIV_BY_16,255,1);      //819 us overflow, 819 us interrupt
+
+   setup_ccp1(CCP_PWM);
+   set_pwm1_duty((int16)510);
+   init_ext_eeprom();
+
+   enable_interrupts(INT_EXT);
+   enable_interrupts(INT_EXT1);
+   enable_interrupts(GLOBAL);
+   ext_int_edge( INT_EXT,L_TO_H );
+   ext_int_edge( INT_EXT,L_TO_H );
+
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

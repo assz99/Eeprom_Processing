@@ -1,0 +1,91 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-005 rdado
+006-007 i
+008-009 res
+00A-00B endereco
+00C-00D write_ext_eeprom.address
+00C-00D @PRINTF_LD_9600_31766_31767.P1
+00C-00D read_ext_eeprom.address
+00C     MAIN.@SCRATCH1
+00D     @delay_ms1.P1
+00E     write_ext_eeprom.data
+00E     read_ext_eeprom.data
+00E     @PRINTF_LD_9600_31766_31767.@SCRATCH1
+00F.0   ext_eeprom_ready.ack
+00F     @I2C_READ_1.P1
+00F     write_ext_eeprom.@SCRATCH1
+00F     read_ext_eeprom.@SCRATCH1
+00F     @PRINTF_LD_9600_31766_31767.@SCRATCH2
+010     @I2C_WRITE_1.P1
+010     @I2C_READ_1.@SCRATCH1
+010     @PRINTF_LD_9600_31766_31767.@SCRATCH3
+011     @I2C_READ_1.@SCRATCH2
+011     @PRINTF_LD_9600_31766_31767.@SCRATCH4
+012     @PRINTF_LD_9600_31766_31767.@SCRATCH5
+013     @PRINTF_LD_9600_31766_31767.@SCRATCH6
+014     @PRINTF_LD_9600_31766_31767.@SCRATCH7
+F83     PSP_DATA
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  init_ext_eeprom
+00000C  @delay_ms1
+000032  @PRINTF_LD_9600_31766_31767
+00010E  @I2C_WRITE_1
+00017A  ext_eeprom_ready
+0001D6  write_ext_eeprom
+000260  @I2C_READ_1
+0002C8  read_ext_eeprom
+0003B0  MAIN
+0003B0  @cinit1
+0003CC  @cinit2
+
+Project Directory:
+    C:\Users\IFMT\Desktop\Renan\Microcontroladores\EEPROM_PROCESSING\
+
+Project Files:
+    EPPROM_PROCESSING.c                                     [04-dez-19 17:24  CRC=3458A245]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F452.h [21-jun-13 16:05  CRC=8BB2C0D6]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\2416.C [31-jul-07 12:12  CRC=6411103C]
+
+Source signature=882D8393
+
+Units:
+    EPPROM_PROCESSING (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   EPPROM_PROCESSING.xsym
+    Errors:      EPPROM_PROCESSING.err
+    Ext Symbols: EPPROM_PROCESSING.esym
+    INHX32:      EPPROM_PROCESSING.hex
+    Symbols:     EPPROM_PROCESSING.sym
+    List:        EPPROM_PROCESSING.lst
+    Debug/COFF:  EPPROM_PROCESSING.cof
+    Project:     EPPROM_PROCESSING.ccspjt
+    Call Tree:   EPPROM_PROCESSING.tre
+    Statistics:  EPPROM_PROCESSING.STA

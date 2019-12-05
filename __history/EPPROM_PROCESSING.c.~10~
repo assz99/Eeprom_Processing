@@ -1,0 +1,61 @@
+//#include <EPPROM_PROCESSING.h>
+#include <18F452.h>
+#device ADC=8
+
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES WDT128                   //Watch Dog Timer uses 1:128 Postscale
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+
+#use delay(crystal=20000000)
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8,stream=PORT1)
+
+#include <2416.C>
+
+int flag_bt1 = 0, flag_bt0 = 0;
+
+#INT_EXT
+void  EXT_isr(void) 
+{
+   flag_bt0 = 1;
+   delay_ms(50);
+}
+
+#INT_EXT1
+void  EXT1_isr(void) 
+{
+    flag_bt1 = 1;
+    delay_ms(50);
+}
+
+void main()
+{
+   fprintf(PORT1,"Inicializando\n");
+   setup_adc_ports(AN0);
+   setup_timer_2(T2_DIV_BY_16,255,1);      //819 us overflow, 819 us interrupt
+
+   setup_ccp1(CCP_PWM);
+   set_pwm1_duty((int16)510);
+   init_ext_eeprom();
+
+   enable_interrupts(INT_EXT);
+   enable_interrupts(INT_EXT1);
+   enable_interrupts(GLOBAL);
+   ext_int_edge( INT_EXT,L_TO_H );
+   ext_int_edge( INT_EXT1,L_TO_H );
+
+
+   while(TRUE)
+   {
+      if(flag_bt0==1){
+         flag_bt0 = 0;
+         fprintf(PORT1,"Botao 0 apertado\n");     
+      }
+      if(flag_bt1==1){
+         flag_bt1 = 0;
+         fprintf(PORT1,"Botao 1 apertado\n");
+      
+      }
+   }
+
+}

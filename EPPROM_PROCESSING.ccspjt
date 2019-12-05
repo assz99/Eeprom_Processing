@@ -1,0 +1,25 @@
+[PROJECT]
+Target=EPPROM_PROCESSING.hex
+Processor_Text=PIC18F452
+CCSVerions=5.007
+Compiler=PCH
+CCSVersion=5.007
+[Target Data]
+FileList=EPPROM_PROCESSING.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;C:\Users\IFMT\Desktop\Renan\Microcontroladores\
+[C:\Users\IFMT\Desktop\Renan\Microcontroladores\EPPROM_PROCESSING]
+Type=4
+[mru-list]
+1=EPPROM_PROCESSING.c
+[Opened Files]
+1=EPPROM_PROCESSING.c
+2=..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F452.h
+3=..\EEPROM PWM 2\EEPROM_2.c
+4=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\2416.C
+5=
+[EPPROM_PROCESSING.c]
+Type=4
+[Units]
+Count=1
+1=EPPROM_PROCESSING (main)

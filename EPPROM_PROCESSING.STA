@@ -1,0 +1,53 @@
+
+ROM used:   1402/16384 (4%)
+            1402/16384 (4%) including unused fragments
+
+            1.6 Average locations per line
+            20.6 Average locations per statement
+
+RAM used:   13/1536 (1%) at main() level
+            21/1536 (1%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   92    45  66  EPPROM_PROCESSING.c
+  701     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F452.h
+   88    23  34  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\2416.C
+----- -----
+  881    68 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38   1    1             @delay_ms1
+0    104   4    3   106  1.6  @I2C_READ_1
+0    108   4    1    32  1.0  @I2C_WRITE_1
+0      8   0    0    32  1.0  init_ext_eeprom
+0     92   3    1    84  2.4  ext_eeprom_ready
+0    138   5    4   202  4.3  write_ext_eeprom
+0    232   8    4   339  5.0  read_ext_eeprom
+0    458  16    1  1387  5.8  MAIN
+0    220   8    9   533  3.7  @PRINTF_LD_9600_31766_31767
+ Inline         0   315  2.3  @cinit1
+
+Program metrics:
+    Functions               9
+    Statements              68
+    Comments                171
+    Volume (V)              4420
+    Difficulty (D)          27.7
+    Effort to implement (E) 122282
+    Time to implement (T)   1 hours, 53 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   6
+    Maintainability (MI)    128
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  1398  31366  
+
+
+
